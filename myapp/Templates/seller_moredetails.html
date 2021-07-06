@@ -1,0 +1,44 @@
+{% extends 'sellerheader.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	
+</head>
+<body>
+	<div class="row">
+		<div class="col-sm-3" >
+			<div class="container">
+				<div class="card"  padding: 20px>
+  					<img src="{{area.Image1.url}}" class="card-img-top" width=200px height=200pxs>
+            <img src="{{area.Image2.url}}" class="card-img-top" width=200px height=200pxs>
+            <img src="{{area.Image3.url}}" class="card-img-top" width=200px height=200pxs>
+            <img src="{{area.Image4.url}}" class="card-img-top" width=200px height=200pxs>
+            <img src="{{area.Image5.url}}" class="card-img-top" width=200px height=200pxs>
+  						<div class="card-body">
+    					<p class="card-title">Property Area: {{area.Area}} </p>
+    					<p class="card-text">Looking to: {{area.Looking_To}} </p>
+    					<p class="card-text">Kind of Property : {{area.Property_Kind}} </p>
+    					<p class="card-text">Address: {{area.Address}} </p>
+    					<p class="card-text">Property Layout: {{area.Property_Layout}} </p>
+              <p class="card-text">Ownership: {{area.Property_Ownership}} </p>
+              <p class="card-text">Super Area: {{area.Super_Area}} </p>
+              <p class="card-text">Facing Road: {{area.facing_road}} </p>
+              <p class="card-text">Property Flooring: {{area.Property_Flooring}} </p>
+              <p class="card-text">Water Source: {{area.Water_source}} </p>
+              <p class="card-text">Furnishing: {{area.Furnishing}} </p>
+              <p class="card-text">Facing: {{area.Facing}} </p>
+              <p class="card-text">Price: {{area.Price}}</p>
+              <p class="card-text">Property ID: {{area.Property_id}} </p>
+              <p class="card-text">Additional Details: {{area.Additional_Details}} </p>
+              <p class="card-text">Contact: {{area.Contact}} </p>
+    				 		<a href="{% url 'seller_Editdetails' pk=area.pk %}" class="btn btn-primary">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    				 		<a href="{% url 'seller_Deletedetails' pk=area.pk %}" class="btn btn-primary">Delete</a>
+ 				 		</div>
+				</div>
+			</div>
+		</div>
+</div>
+</body>
+</html>
+{% endblock %}

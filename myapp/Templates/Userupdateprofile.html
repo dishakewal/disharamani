@@ -1,0 +1,81 @@
+{% extends 'header.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<center>
+	<h4>update profile</h4>
+	{% if msg %}
+		<b><p style="color:blue;">{{msg}}</p></b>
+	{% endif %}
+	<form name="upate profile" method="POST" action="{% url 'Userupdateprofile' %}" enctype="multipart/form-data">
+		{% csrf_token %}
+		<table>
+			<tr>
+				<td>First Name</td>
+				<td><input type="text" name="firstname" value="{{user.firstname}}"></td>
+			</tr>
+				<tr>
+				<td>Last Name</td>
+				<td><input type="text" name="lastname" value="{{user.lastname}}"></td>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td><input type="text" name="email" value="{{user.email}}"></td>
+			</tr>
+			<tr>
+				<td>Mobile</td>
+				<td><input type="text" name="mobile" value="{{user.mobile}}"></td>
+			</tr>
+			<tr>
+				<td>Address</td>
+				<td><textarea rows="5" cols="22" name="address">{{user.address}}</textarea></td>
+			</tr>
+			<tr>
+
+				<td>Gender</td>
+				{% if user.gender == "male" %}
+				<td><input type="radio" name="gender" value="male" checked="">Male &nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" name="gender" value="Female">Female &nbsp;&nbsp;&nbsp;&nbsp;
+				</td>
+				{% elif user.gender == "female" %}
+				<td><input type="radio" name="gender" value="male">Male &nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" name="gender" value="Female" checked="">Female &nbsp;&nbsp;&nbsp;&nbsp;
+				</td>
+				{% else %}
+				<td><input type="radio" name="gender" value="male">Male &nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" name="gender" value="Female">Female &nbsp;&nbsp;&nbsp;&nbsp;
+				</td>
+				{% endif %}
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td><input type="text" name="password" value="{{user.password}}"></td>
+			</tr>
+			<tr>
+				<td>Confirm Password</td>
+				<td><input type="text" name="cpassword" value="{{user.cpassword}}"></td>
+			</tr>
+			<tr>
+				<tr>
+					<td colspan="22" align="center">
+						<img src="{{user.image.url}}" width="50px" height="50px">
+				</tr>
+				<td>Image</td>
+				<td><input type="file" name="image"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<input type="submit" name="action" value="Update" class="btn ">
+				</td>
+				
+			</tr>
+		</table>
+	</form>
+</center>
+</body>
+</html>
+{% endblock %}

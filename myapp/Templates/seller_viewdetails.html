@@ -1,0 +1,29 @@
+{% extends 'sellerheader.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	
+</head>
+<body>
+	<div class="row">
+	{% for i in area %}
+		<div class="col-sm-3" >
+			<div class="container">
+				<div class="card"  padding: 20px>
+  					<img src="{{i.Image1.url}}" class="card-img-top" width=200px height=200pxs>
+  						<div class="card-body">
+    						<p class="card-title">Area: {{i.Area}} </p>
+    						<p class="card-text">Price: {{i.Price}} </p>
+    						<p class="card-text">Address: {{i.Address}} </p>
+
+    				 		<a href="{% url 'seller_moredetails' pk=i.pk %}" class="btn btn-primary">More Details</a>
+ 				 		</div>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+</div>
+</body>
+</html>
+{% endblock %}

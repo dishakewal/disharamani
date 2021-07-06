@@ -1,0 +1,40 @@
+{% extends 'header.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<center>
+	<h1>Login</h1>
+	{% if msg %}
+		<b><p style="color:blue;">{{msg}}</p></b>
+	{% endif %}
+	<form name="login" method="POST" action="{% url 'login' %}">
+		{% csrf_token %}
+		<table>
+			<tr>
+				<td>email</td>
+				<td><input type="text" name="email" id="email"></td>
+				
+			</tr>
+			<tr>
+				<td>password</td>
+				<td><input type="text" name="password"></td>
+			</tr>
+			
+			<tr>
+				<td colspan="2" align="center">
+					<input type="submit" name="action" value="login" class="btn_primary ">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="{% url 'forgot_passwd' %}">
+					<input type="button" name="action" value="forgot password" class="btn_primary"></a></td>
+			</tr>
+		</table>
+	</form>
+</center>
+</body>
+</html>
+{% endblock %}

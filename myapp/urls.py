@@ -1,0 +1,33 @@
+from django.urls import path
+from .import views
+
+urlpatterns = [
+    path('',views.home,name='home'),
+    path('signup/',views.signup,name="signup"),
+    path('login/',views.login,name="login"),
+    path('Userupdateprofile/',views.Userupdateprofile,name="Userupdateprofile"),
+    path('change_password/',views.change_password,name="change_password"),
+    path('forgot_passwd/',views.forgot_passwd,name="forgot_passwd"),
+    path('otp/',views.otp,name="otp"),
+    path('new_password/',views.new_password,name="new_password"),
+    path('logout/',views.logout,name="logout"),
+    path('sellerhome/',views.sellerhome,name="sellerhome"),
+    path('sellersignup/',views.sellersignup,name="sellersignup"),
+    path('sellerprofile/',views.sellerprofile,name="sellerprofile"),
+    path('sellerchange_password/',views.sellerchange_password,name="sellerchange_password"),
+    path('seller_adddetails/',views.seller_adddetails,name="seller_adddetails"),
+    path('seller_viewdetails/',views.seller_viewdetails,name="seller_viewdetails"),
+    path('seller_moredetails/<int:pk>/',views.seller_moredetails,name="seller_moredetails"),
+    path('seller_Editdetails/<int:pk>/',views.seller_Editdetails,name="seller_Editdetails"),
+	path('seller_Deletedetails/<int:pk>/',views.seller_Deletedetails,name="seller_Deletedetails"),
+    path('ahmd_area/',views.ahmd_area,name="ahmd_area"),
+    path('user_view_all_details/<str:aa>/',views.user_view_all_details,name="user_view_all_details"),
+    path('user_moredetails/<int:pk>/',views.user_moredetails, name="user_moredetails"),
+    path('add_to_wishlist/<int:pk>/',views.add_to_wishlist, name="add_to_wishlist"),
+    path('mywishlist/',views.mywishlist,name="mywishlist"),
+    path('remove_from_wishlist/<int:pk>/',views.remove_from_wishlist,name="remove_from_wishlist"),
+    path('add_to_cart/<int:pk>/',views.add_to_cart,name="add_to_cart"),
+    path('mycart/',views.mycart,name="mycart"),
+    path('remove_from_cart/<int:pk>/',views.remove_from_cart,name="remove_from_cart"),
+    path('change_qty/<int:pk>/',views.change_qty,name="change_qty"),
+  ]

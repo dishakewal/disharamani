@@ -1,0 +1,173 @@
+{% extends 'sellerheader.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<center>
+	<h4>Add Details</h4>
+	 {% if msg %}
+        <b><p style="color:blue;">{{msg}}</p></b>
+    {% endif %}
+	
+	<form name="seller_Editdetails" method="POST" action="{% url 'seller_Editdetails' pk=area.pk %}" enctype="multipart/form-data">
+	{% csrf_token %}
+		<table>
+			<tr>
+				<td>Area</td>
+				<td><input type="text" name="Area" value="{{area.Area}}" value="readonly"></td>
+			</tr>
+
+			<tr>
+				<td>Looking To</td>
+				{% if area.Looking_To == "Sell" %}
+					<td><input type="radio" name="Looking_To" value="Sell" checked="">Sell &nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="radio" name="Looking_To" value="Rent/Lease">Rent/Lease &nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="radio" name="Looking_To" value="Paying_Guest">PayingGuest &nbsp;&nbsp;&nbsp;
+					</td>
+				{% elif area.Looking_To == "Rent/Lease" %}
+					<td><input type="radio" name="Looking_To" value="Sell">Sell &nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="radio" name="Looking_To" value="Rent/Lease"checked="">Rent/Lease &nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="radio" name="Looking_To" value="Paying_Guest">PayingGuest &nbsp;&nbsp;&nbsp;
+					</td>
+				{% elif area.Looking_To == "Paying_Guest" %}
+					<td><input type="radio" name="Looking_To" value="Sell">Sell &nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="radio" name="Looking_To" value="Rent/Lease">Rent/Lease &nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="radio" name="Looking_To" value="Paying_Guest" checked="">PayingGuest &nbsp;&nbsp;&nbsp;
+					</td>
+				{% else %}
+					<td><input type="radio" name="Looking_To" value="Sell">Sell &nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="radio" name="Looking_To" value="Rent/Lease">Rent/Lease &nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="radio" name="Looking_To" value="Paying_Guest">PayingGuest &nbsp;&nbsp;&nbsp;
+					</td>
+				{% endif %}
+
+				</td>
+			</tr>
+
+			<tr>
+				<td>Kind of property</td>
+					{% if area.Property_Kind == "Residential" %}
+				<td><input type="radio" name="Property_Kind" value="Residential" checked="">Residential &nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" name="Property_Kind" value="Commercial">Commercial &nbsp;&nbsp;&nbsp&nbsp;
+				</td>
+				{% elif area.Property_Kind  == "Commercial" %}
+				<td><input type="radio" name="Property_Kind" value="Residential">Residential &nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" name="Property_Kind" value="Commercial" checked="">Commercial &nbsp;&nbsp;&nbsp&nbsp;
+				{% else %}
+				<td><input type="radio" name="Property_Kind" value="Residential">Residential &nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" name="Property_Kind" value="Commercial">Commercial &nbsp;&nbsp;&nbsp&nbsp;
+				</td>
+				{% endif %}
+					
+			
+			</tr>
+			<tr>
+				<td>Address</td>
+				<td><textarea rows="5" cols="20" name="Address">{{area.Address}}</textarea></td>
+			</tr>
+
+			<tr>
+				<td>Property Layout</td>
+				<td><textarea rows="1" cols="15" name="Property_Layout">{{area.Property_Layout}}</textarea></td>
+			</tr>
+			<tr>
+				<td>Property Ownership</td>
+				<td><input type="text" name="Property_Ownership" value="{{area.Property_Ownership}}"></td>
+			</tr>
+			
+			
+			<tr>
+				<td>Super Area</td>
+				<td><textarea  type="text" name="Super_Area" rows="1" cols="10">{{area.Super_Area}}</textarea></td>
+				
+			</tr>
+			<tr>
+				<td>Width of facing Road</td>
+				<td><textarea  type="text" name="facing_road" rows="1" cols="10">{{area.facing_road}}</textarea></td>
+				
+			</tr>
+			<tr>
+				<td>Property Flooring</td>
+				<td><input type="text" name="Property_Flooring" value="{{area.Property_Flooring}}"></td>
+			</tr>
+			<tr>
+				<td>Water Source</td>
+				<td><input type="text" name="Water_source" value="{{area.Water_source}}"></td>
+			</tr>
+			<tr>
+				<td>Furnishing</td>
+				<td><input type="text" name="Furnishing" value="{{area.Furnishing}}"></td>
+			</tr>
+			<tr>
+				<td>Facing</td>
+				<td><input type="text" name="Facing" value="{{area.Facing}}"></td>
+			</tr>
+			<tr>
+			<td>Property ID</td>
+				<td><textarea type="text" name="Property_id" rows="1" cols="15">{{area.Property_id}}</textarea></td>
+			</tr>
+			<td>Price</td>
+				<td><input type="text" name="Price" value="{{area.Price}}"></td>
+			</tr>
+			<td> Additional Details</td>
+				<td><textarea type="text" name="Additional_Details" rows="3" cols="15">{{area.Additional_Details}}</textarea></td>
+			</tr>
+			<tr>
+				<td>Contact Details</td>
+				<td><input type="text" name="Contact" value="{{area.Contact}}"></td>
+			</tr>
+			<tr>
+				<tr>
+					<td colspan="22" align="center">
+						<img src="{{area.Image1.url}}" width="50px" height="50px">
+				</tr>
+				<td>Image1</td>
+				<td><input type="file" name="Image1"></td>
+			</tr>
+			<tr>
+				<tr>
+					<td colspan="22" align="center">
+						<img src="{{area.Image2.url}}" width="50px" height="50px">
+				</tr>
+				<td>Image2</td>
+				<td><input type="file" name="Image2"></td>
+			</tr>
+			<tr>
+				<tr>
+					<td colspan="22" align="center">
+						<img src="{{area.Image3.url}}" width="50px" height="50px">
+				</tr>
+				<td>Image3</td>
+				<td><input type="file" name="Image3"></td>
+			</tr>
+			<tr>
+				<tr>
+					<td colspan="22" align="center">
+						<img src="{{area.Image4.url}}" width="50px" height="50px">
+				</tr>
+				<td>Image4</td>
+				<td><input type="file" name="Image4"></td>
+			</tr>
+			<tr>
+				<tr>
+					<td colspan="22" align="center">
+						<img src="{{area.Image5.url}}" width="50px" height="50px">
+				</tr>
+				<td>Image5</td>
+				<td><input type="file" name="Image5"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<input type="submit" name="action" value="Update Details" class="btn_primary ">
+				</td>
+				
+			</tr>
+		</table>
+	</form>
+</center>
+</body>
+</html>
+{% endblock %}

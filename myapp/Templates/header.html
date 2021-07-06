@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://use.font-awesome.com/d9dabe534c.js"></script>
+  <style type="text/css">
+    tr,td{
+      padding: 7px;
+    }
+  </style>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Acers</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="{% url 'home' %}">Home</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="{% url 'ahmd_area' %}">Area's <span class="caret"></span></a>
+
+        <ul class="dropdown-menu">
+        <li><a href="{% url 'user_view_all_details' aa='All' %} ">All</a></li>
+        <li><a href=" {% url 'user_view_all_details' aa='Sg highway,Ahmedabad West' %}">Sg highway,Ahmedabad West</a></li>
+        <li><a href="{% url 'user_view_all_details' aa='Shela,Ahmedabad West' %}" >Shela,Ahmedabad West</a></li>
+        <li><a href="{% url 'user_view_all_details' aa='South Bopal,Ahmedabad West' %} ">South Bopal,Ahmedabad West</a></li>
+        <li><a href="{% url 'user_view_all_details' aa='Chandkhelda,Ahmedabad North' %}">Chandkhelda,Ahmedabad North</a></li>
+        <li><a href="{% url 'user_view_all_details' aa='Naroda,Ahmedabad East' %}">Naroda,Ahmedabad East</a></li>
+        <li><a href="{% url 'user_view_all_details' aa='Bopal,Ahmedabad West' %} ">Bopal,Ahmedabad West</a></li>
+        <li><a href="{% url 'user_view_all_details' aa='Thaltej,Ahmedabad West' %}">Thaltej,Ahmedabad West</a></li>
+        <li><a href="{% url 'user_view_all_details' aa='Satellite,Ahmedabad West' %}">Satellite,Ahmedabad West</a></li>
+        <li><a href="{% url 'user_view_all_details' aa='Gota,Ahmedabad North' %}">Gota,Ahmedabad North</a></li>
+        </ul>
+      </li>
+     
+      
+    </ul>
+    {% if request.session.email %}
+
+     <ul class="nav navbar-nav navbar-right">
+       <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>
+        Cart({{request.session.cart_count}}) </a></li>
+      <li><a href="{% url 'mywishlist' %}"><span class="glyphicon glyphicon-heart"></span>Wishlist </a></li>
+      <li><a href="{% url 'change_password' %}"><span class="glyphicon glyphicon-edit"></span>change password </a></li>
+      <li><a href="{% url 'Userupdateprofile' %}"><span class="glyphicon glyphicon-edit"></span>updateprofile </a></li>
+      <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span>logout ({{request.session.firstname}})</a></li>
+          <img src={{request.session.image}} width="50px" height="50px">
+    </ul>
+    {% else %}
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="{% url 'signup' %}"><span class="glyphicon glyphicon-user"></span>signup</a></li>
+      <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> login</a></li>
+    </ul>
+    {% endif %}
+    
+  </div>
+</nav>
+</body>
+</html>
+{% block content %}
+{% endblock %}

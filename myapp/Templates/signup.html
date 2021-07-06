@@ -1,0 +1,74 @@
+{% extends 'header.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<center>
+	<h4>Sign up</h4>
+	{% if msg %}
+		<b><p style="color:blue;">{{msg}}</p></b>
+	{% endif %}
+	<form name="contact" method="POST" action="{% url 'signup' %}" enctype="multipart/form-data">
+		{% csrf_token %}
+		<table>
+			<tr>
+				<td>usertype</td>
+				<td><input type="radio" name="usertype" value="user">User &nbsp;&nbsp; &nbsp;
+				<input type="radio" name="usertype" value="seller">Seller</td>&nbsp;&nbsp;&nbsp;
+			</tr>
+
+			<tr>
+				<td>First Name</td>
+				<td><input type="text" name="firstname"></td>
+			</tr>
+
+			<tr>
+				<td>Last Name</td>
+				<td><input type="text" name="lastname"></td>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td><input type="text" name="email"></td>
+			</tr>
+			<tr>
+				<td>Mobile</td>
+				<td><input type="text" name="mobile"></td>
+			</tr>
+			<tr>
+				<td>Address</td>
+				<td><textarea rows="5" cols="22" name="address"></textarea></td>
+			</tr>
+			<tr>
+				<td>Gender</td>
+				<td><input type="radio" name="gender" value="male">Male &nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" name="gender" value="Female">Female &nbsp;&nbsp;&nbsp;&nbsp;
+				</td>
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td><input type="text" name="password"></td>
+			</tr>
+			<tr>
+				<td>Confirm Password</td>
+				<td><input type="text" name="cpassword"></td>
+			</tr>
+			<tr>
+				<img src="{{user.image.url}}" width="50px" height="50px">
+				<td>Image</td>
+				<td><input type="file" name="image"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<input type="submit" name="action" value="Sign up" class="btn ">
+				</td>
+				
+			</tr>
+		</table>
+	</form>
+</center>
+</body>
+</html>
+{% endblock %}

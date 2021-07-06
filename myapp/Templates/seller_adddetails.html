@@ -1,0 +1,136 @@
+{% extends 'sellerheader.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<center>
+	<h4>Add Details</h4>
+	{% if msg %}
+		<b><p style="color:blue;">{{msg}}</p></b>
+	{% endif %}
+	<form name="seller_adddetails" method="POST" action="{% url 'seller_adddetails' %}" enctype="multipart/form-data">
+		{% csrf_token %}
+		<table>
+			<tr>
+				<td>Select Area  </td>
+				<td>
+				<select name="Area">&nbsp;&nbsp;&nbsp;
+					<option>---Select Area---</option>
+					<option value="Sg highway,Ahmedabad West">Sg highway,Ahmedabad West</option>
+					<option value="Shela,Ahmedabad West">Shela, Ahmedabad West</option>
+					<option value="South Bopal,Ahmedabad West">South Bopal,Ahmedabad West</option>
+					<option value="Chandkhelda,Ahmedabad North">Chandkheda,Ahmedabad North</option>
+					<option value="Naroda, Ahmedabad East">Naroda,Ahmedabad East</option>
+					<option value="Bopal, Ahmedabad West">Bhopal,Ahmedabad West</option>
+					<option value="Thaltej, Ahmedabad West">Thaltej,Ahmedabad West</option>
+					<option value="Gota, Ahmedabad North'">Gota,Ahmedabad North</option>
+				</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>Looking To</td>
+				<td><input type="radio" name="Looking_To" value="Sell">Sell &nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" name="Looking_To" value="Rent/Lease">Rent/Lease &nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" name="Looking_To" value="Paying_Guest">PayingGuest &nbsp;&nbsp;&nbsp;&nbsp;
+
+				</td>
+			</tr>
+
+			<tr>
+				<td>Kind of property</td>
+				<td>
+					<input type="radio" name="Property_Kind" value="Residential">Residential &nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" name="Property_Kind" value="Commercial">Commercial &nbsp;&nbsp;&nbsp&nbsp;
+				</td>
+			</tr>
+			<tr>
+				<td>Address</td>
+				<td><textarea rows="5" cols="20" name="Address"></textarea></td>
+			</tr>
+
+			<tr>
+				<td>Property Layout</td>
+				<td><textarea rows="1" cols="15" name="Property_Layout"></textarea></td>
+			</tr>
+			<tr>
+				<td>Property Ownership</td>
+				<td><input type="text" name="Property_Ownership"></td>
+			</tr>
+			
+			
+			<tr>
+				<td>Super Area</td>
+				<td><textarea  type="text" name="Super_Area" rows="1" cols="10"></textarea></td>
+				
+			</tr>
+			<tr>
+				<td>Width of facing Road</td>
+				<td><textarea  type="text" name="facing_road" rows="1" cols="10"></textarea></td>
+				
+			</tr>
+			<tr>
+				<td>Property Flooring</td>
+				<td><input type="text" name="Property_Flooring"></td>
+			</tr>
+			<tr>
+				<td>Water Source</td>
+				<td><input type="text" name="Water_source"></td>
+			</tr>
+			<tr>
+				<td>Furnishing</td>
+				<td><input type="text" name="Furnishing"></td>
+			</tr>
+			<tr>
+				<td>Facing</td>
+				<td><input type="text" name="Facing"></td>
+			</tr>
+			<tr>
+			<td>Property ID</td>
+				<td><textarea type="text" name="Property_id" rows="1" cols="15"></textarea></td>
+			</tr>
+			<td>Price</td>
+				<td><input type="text" name="Price"></td>
+			</tr>
+			<td> Additional Details</td>
+				<td><textarea type="text" name="Additional_Details" rows="3" cols="15"></textarea></td>
+			</tr>
+			<tr>
+				<td>Contact Details</td>
+				<td><input type="text" name="Contact"></td>
+			</tr>
+			<tr>
+				<td>Image1</td>
+				<td><input type="File" name="Image1"></td>
+			</tr>
+			<tr>
+				<td>Image2</td>
+				<td><input type="File" name="Image2"></td>
+			</tr>
+			<tr>
+				<td>Image3</td>
+				<td><input type="File" name="Image3"></td>
+			</tr>
+			<tr>
+				<td>Image4</td>
+				<td><input type="File" name="Image4"></td>
+			</tr>
+			<tr>
+				<td>Image5</td>
+				<td><input type="File" name="Image5"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<input type="submit" name="action" value="Add  Details" class="btn_primary ">
+				</td>
+				
+			</tr>
+		</table>
+	</form>
+</center>
+</body>
+</html>
+{% endblock %}

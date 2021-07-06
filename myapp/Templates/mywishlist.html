@@ -1,0 +1,29 @@
+{% extends 'header.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	
+</head>
+<body>
+	<div class="row">
+	{% for i in wishlist %}
+		<div class="col-sm-3" >
+			<div class="container">
+				<div class="card"  padding: 20px>
+  					<img src="{{i.area.Image1.url}}" class="card-img-top" width=200px height=200pxs>
+  						<div class="card-body">
+    						<p class="card-title">Area: {{i.area.Area}} </p>
+    						<p class="card-text">Price: {{i.area.Price}} </p>
+
+    				 		<a href="{% url 'user_moredetails' pk=i.area.pk %}" class="btn btn-primary">More Details</a>
+    				 		
+ 				 		</div>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+</div>
+</body>
+</html>
+{% endblock %}
